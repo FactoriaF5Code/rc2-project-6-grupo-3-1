@@ -7,6 +7,9 @@
 --colorPrecios: #008234;
 --colorFondo: #F3F3F3;
 --colorAlert: #E21111;
+--white:white;
+--black:black;
+--grey:#868686;
 }
 * {
   margin: 0;
