@@ -1,17 +1,10 @@
-import { useEffect } from "react";
 import "./HotelList.css";
-import axios from "axios";
-import { useState } from "react";
 import BookingButton from "../BookingButton/BookingButton";
+import { useHotelContext } from "../../context/HotelContext";
 
 const HotelList = () => {
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:8080/api/hotels").then((response) => {
-      setData(response.data);
-    });
-  }, []);
+  const {data} = useHotelContext();
 
   return (
     <main>

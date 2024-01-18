@@ -1,6 +1,10 @@
+/* eslint-disable react/prop-types */
 import "./BookingModal.css";
 
-const BookingModal = () => {
+const BookingModal = ({open, closing}) => {
+
+  if (!open) return null;
+
   return (
     < div className="bookingModal">
     <div className="bookingModal__container">
@@ -32,7 +36,7 @@ const BookingModal = () => {
           id="date"
         />
       </form>
-      <button className="bookingModal__button">Aceptar</button>
+      <button className="bookingModal__button" onClick={closing}>Aceptar</button>
     </div>
     </div>
   );
