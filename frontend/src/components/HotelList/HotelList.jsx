@@ -2,12 +2,14 @@ import "./HotelList.css";
 import BookingButton from "../BookingButton/BookingButton";
 import { useHotelContext } from "../../context/HotelContext";
 
-const HotelList = () => {
 
-  const {data} = useHotelContext();
+const HotelList = () => {
+  const { data } = useHotelContext();
+  
 
   return (
     <main>
+      
       {data.map((hotel) => (
         <article className="hotelCard" key={hotel.id}>
           <div className="hotelCard__imgContainer">
@@ -25,7 +27,7 @@ const HotelList = () => {
               <p className="priceContainer__price">{hotel.pricePerNight} €</p>
               <p className="priceContainer__text">por noche</p>
             </span>
-            <BookingButton />
+            <BookingButton hotelId={hotel.id} />
           </section>
         </article>
       ))}
