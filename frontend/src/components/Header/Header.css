@@ -45,10 +45,12 @@ Header {
   background-color: white;
   border: none;
   margin-left: 2rem;
-}
-input::placeholder {
+  color: var(--black);
   font-size: 1.5rem;
-  color: #868686;
+}
+.searchBar__input::placeholder {
+  font-size: 1.5rem;
+  color: #686868;
 }
 
 .searchBar__input--reset {

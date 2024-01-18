@@ -2,14 +2,11 @@ import "./HotelList.css";
 import BookingButton from "../BookingButton/BookingButton";
 import { useHotelContext } from "../../context/HotelContext";
 
-
 const HotelList = () => {
   const { data } = useHotelContext();
-  
 
   return (
     <main>
-      
       {data.map((hotel) => (
         <article className="hotelCard" key={hotel.id}>
           <div className="hotelCard__imgContainer">
@@ -34,4 +31,5 @@ const HotelList = () => {
     </main>
   );
 };
+
 export default HotelList;

@@ -129,7 +129,12 @@ const BookingModal = ({ open, closing, hotelId }) => {
         </div>
       )}
       <div className="bookingModal__container">
-        <p className="bookingModal__container--closingButton" onClick={handleClick}>X</p>
+        <p
+          className="bookingModal__container--closingButton"
+          onClick={handleClick}
+        >
+          X
+        </p>
         <h2 className="bookingModal__title">¡ Completa tu reserva !</h2>
         <div className="bookingModal__hotel">
           <h2 className="bookingModal__hotel--name">
