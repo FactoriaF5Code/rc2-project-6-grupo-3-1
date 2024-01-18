@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./HotelList.css";
 import axios from "axios";
 import { useState } from "react";
+import BookingButton from "../BookingButton/BookingButton";
 
 const HotelList = () => {
   const [data, setData] = useState([]);
@@ -31,7 +32,7 @@ const HotelList = () => {
               <p className="priceContainer__price">{hotel.pricePerNight} €</p>
               <p className="priceContainer__text">por noche</p>
             </span>
-            <button className="booking__button">Reserva</button>
+            <BookingButton />
           </section>
         </article>
       ))}
