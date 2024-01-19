@@ -3,8 +3,7 @@ import BookingButton from "../BookingButton/BookingButton";
 import { useHotelContext } from "../../context/HotelContext";
 
 const HotelList = () => {
-
-  const {data} = useHotelContext();
+  const { data } = useHotelContext();
 
   return (
     <main>
@@ -25,11 +24,12 @@ const HotelList = () => {
               <p className="priceContainer__price">{hotel.pricePerNight} €</p>
               <p className="priceContainer__text">por noche</p>
             </span>
-            <BookingButton />
+            <BookingButton hotelId={hotel.id} />
           </section>
         </article>
       ))}
     </main>
   );
 };
+
 export default HotelList;

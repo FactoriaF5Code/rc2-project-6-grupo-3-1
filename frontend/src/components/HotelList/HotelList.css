@@ -83,7 +83,7 @@ main {
   height: 3.5rem;
   color: var(--white);
   background-color: var(--colorSecundario);
-  border-radius: 0.8rem;
+  border-radius: 0.5rem;
   border: none;
 }
 
