@@ -1,17 +1,19 @@
-import './App.css'
-import Header from './components/Header/Header'
-import HotelList from './components/HotelList/HotelList'
-
+import "./App.css";
+import { Footer } from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import HotelList from "./components/HotelList/HotelList";
+import HotelProvider from "./context/HotelContext";
 
 function App() {
-  
-
   return (
     <>
-      <Header/>
-      <HotelList/>
+      <HotelProvider>
+        <Header />
+        <HotelList />
+      </HotelProvider>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

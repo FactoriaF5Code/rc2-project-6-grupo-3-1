@@ -1,16 +1,9 @@
-import { useEffect } from "react";
 import "./HotelList.css";
-import axios from "axios";
-import { useState } from "react";
+import BookingButton from "../BookingButton/BookingButton";
+import { useHotelContext } from "../../context/HotelContext";
 
 const HotelList = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:8080/api/hotels").then((response) => {
-      setData(response.data);
-    });
-  }, []);
+  const { data } = useHotelContext();
 
   return (
     <main>
@@ -31,11 +24,12 @@ const HotelList = () => {
               <p className="priceContainer__price">{hotel.pricePerNight} €</p>
               <p className="priceContainer__text">por noche</p>
             </span>
-            <button className="booking__button">Reserva</button>
+            <BookingButton hotelId={hotel.id} />
           </section>
         </article>
       ))}
     </main>
   );
 };
+
 export default HotelList;
