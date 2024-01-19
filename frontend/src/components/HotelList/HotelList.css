@@ -1,6 +1,6 @@
 main {
   background-color: var(--colorFondo);
-  min-height: 55rem;
+  min-height: 68rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
