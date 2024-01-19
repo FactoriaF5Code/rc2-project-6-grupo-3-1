@@ -63,20 +63,14 @@ const BookingModal = ({ open, closing, hotelId }) => {
     axios.get("http://localhost:8080/api/bookings").then((response) => {
       setBookings(response.data);
     });
-  }, []);
+  }, [entryDate]);
 
   function handleBooking() {
     const nuevaReserva = { hotelId, entryDay: entryDate, exitDay: exitDate };
 
     // Verificar si el hotelId coincide en las reservas existentes
-    const mismoHotel = bookings.some(
-      (reserva) => reserva.hotelId === nuevaReserva.hotelId
-    );
 
-    if (
-      (mismoHotel && puedeReservar(bookings, nuevaReserva)) ||
-      bookings.length === 0
-    ) {
+    if (puedeReservar(bookings, nuevaReserva)) {
       // Si el hotelId coincide y se puede reservar, realizar la solicitud
       axios
         .post("http://localhost:8080/api/bookings", nuevaReserva)
