@@ -12,10 +12,9 @@ function puedeReservar(reservasExistente, nuevaReserva) {
     exitDay: nuevaSalida,
   } = nuevaReserva;
 
-  // Verificar si no hay reservas existentes
   if (reservasExistente.length === 0) {
     console.log("No hay reservas existentes. Se puede reservar.");
-    return true; // No hay reservas existentes, se puede reservar
+    return true; 
   }
 
   for (const reserva of reservasExistente) {
@@ -25,31 +24,22 @@ function puedeReservar(reservasExistente, nuevaReserva) {
       exitDay: salidaExistente,
     } = reserva;
 
-    // Verificar si hay solapamiento de fechas para el mismo hotel
     if (hotelId === nuevoHotelId) {
       const entradaExistenteTime = new Date(entradaExistente).getTime();
       const salidaExistenteTime = new Date(salidaExistente).getTime();
       const nuevaEntradaTime = new Date(nuevaEntrada).getTime();
       const nuevaSalidaTime = new Date(nuevaSalida).getTime();
 
-      console.log("Comparando fechas:");
-      console.log(`Nueva Entrada: ${nuevaEntradaTime}`);
-      console.log(`Nueva Salida: ${nuevaSalidaTime}`);
-      console.log(`Existente Entrada: ${entradaExistenteTime}`);
-      console.log(`Existente Salida: ${salidaExistenteTime}`);
-
       if (
         nuevaEntradaTime < salidaExistenteTime &&
         nuevaSalidaTime > entradaExistenteTime
       ) {
         console.log("Hay solapamiento de fechas. No se puede reservar.");
-        return false; // Solapamiento de fechas, no se puede reservar
       }
     }
   }
-
   console.log("No hay solapamiento de fechas. Se puede reservar.");
-  return true; // No hay solapamiento, se puede reservar
+  return true; 
 }
 
 const BookingModal = ({ open, closing, hotelId }) => {
@@ -68,21 +58,15 @@ const BookingModal = ({ open, closing, hotelId }) => {
   function handleBooking() {
     const nuevaReserva = { hotelId, entryDay: entryDate, exitDay: exitDate };
 
-    // Verificar si el hotelId coincide en las reservas existentes
-
     if (puedeReservar(bookings, nuevaReserva)) {
-      // Si el hotelId coincide y se puede reservar, realizar la solicitud
       axios
         .post("http://localhost:8080/api/bookings", nuevaReserva)
         .then((response) => {
           console.log(response);
-          // Lógica adicional después de la reserva si es necesario
         });
       setConfirmed("confirmed");
     } else {
-      console.log("No se puede reservar debido a solapamiento de fechas.");
       setConfirmed("notConfirmed");
-      // Puedes mostrar un mensaje al usuario informándole que no se puede reservar en esas fechas
     }
     handleClick;
   }
