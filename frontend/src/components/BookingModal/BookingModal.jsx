@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./BookingModal.css";
+import { useState } from "react";
 
 const BookingModal = ({open, closing}) => {
 

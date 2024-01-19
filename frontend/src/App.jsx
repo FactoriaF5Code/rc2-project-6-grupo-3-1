@@ -1,4 +1,5 @@
 import "./App.css";
+import { Footer } from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import HotelList from "./components/HotelList/HotelList";
 import HotelProvider from "./context/HotelContext";
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <HotelList />
       </HotelProvider>
+      <Footer />
     </>
   );
 }
