@@ -7,6 +7,7 @@ export const HotelContext = createContext();
 
 export default function HotelProvider({ children }) {
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/hotels").then((response) => {
@@ -15,7 +16,7 @@ export default function HotelProvider({ children }) {
   }, []);
 
   return (
-    <HotelContext.Provider value={{ data }}>
+    <HotelContext.Provider value={{ data,search,setSearch }}>
       {children}
     </HotelContext.Provider>
   );
