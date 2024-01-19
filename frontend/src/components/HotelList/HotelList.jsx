@@ -4,7 +4,8 @@ import { useHotelContext } from "../../context/HotelContext";
 
 const HotelList = () => {
   const { data,search } = useHotelContext();
-  const filteredHotels = data.filter( hotel => hotel.name.toLowerCase().includes(search.toLowerCase()))
+  const filteredHotels = data.filter( hotel => hotel.name.toString().toLowerCase().includes(search.toString().toLowerCase()));
+  
   
 // noseque ? hazme esto : hazme lo otro
   return (
